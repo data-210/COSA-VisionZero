@@ -13,6 +13,7 @@ library(RColorBrewer)
 # install.packages("udunits2")
 library(udunits2)
 library(tidyverse)
+
 ped_cycle_df <- read.csv("ped_cycle_df.csv", header = TRUE, stringsAsFactors = FALSE)
 
 # Redistricted Council boundaries shapefile
@@ -117,7 +118,8 @@ ui <- dashboardPage(
                               "<b>April 9:</b> March 2024 data updated and added to the dashboard.<br>",
                               "<b>May 3:</b> April 2024 data updated and added to the dashboard.<br>",
                               "<b>June 5:</b> May 2024 data updated and added to the dashboard.<br>",
-                              "<b>September 4:</b> June, July, & August 2024 data updated and added to the dashboard. Sorry for the delay!<br>")
+                              "<b>September 4:</b> June, July, & August 2024 data updated and added to the dashboard. Sorry for the delay!<br>",
+                              "<b>December 6:</b> Added September, October, November data to dashboard.<br>")
                        )
                 )
               )),
