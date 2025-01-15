@@ -3,8 +3,8 @@ library(tidyverse)
 # Master csv creation
 # 
 
-unique(ped_cycle$Crash_Year)
-class(mask1$Crash_Date)
+# unique(ped_cycle$Crash_Year)
+# class(mask1$Crash_Date)
 # # 
 
 
@@ -240,6 +240,12 @@ satx_nov2024 <- read.csv('/Users/jackturek/Documents/Repos/COSA-VisionZero/data/
                          stringsAsFactors = FALSE)
 satx_nov2024 <- pedcycle_cleaning_function(satx_nov2024)
 View(satx_nov2024)
+
+# 2024 - December
+satx_dec2024 <- read.csv("data/satx_dec2024.csv", header = TRUE, stringsAsFactors = FALSE)
+satx_dec2024 <- pedcycle_cleaning_function(satx_dec2024)
+
+
 ######################################################################################
 ######################################################################################
 # Append data frames
@@ -250,11 +256,9 @@ ped_cycle_df <- rbind(satx_2013, satx_2014, satx_2015, satx_2016, satx_2017, sat
                       satx_2023_june, satx_2023_july, satx_2023_aug, satx_2023_sep, satx_oct2023,
                       satx_nov2023, satx_dec2023, satx_jan2024, satx_feb2024, satx_mar2024,
                       satx_apr2024, satx_may2024, satx_june2024, satx_july2024,
-                      satx_aug2024, satx_sepoct2024, satx_nov2024)
+                      satx_aug2024, satx_sepoct2024, satx_nov2024, satx_dec2024)
 #ped_cycle_df <- rbind(ped_cycle_df, satx_june2024)
 
-
-getwd()
 ## Write final df to csv
 output_dir <- '/Users/jackturek/Documents/Repos/COSA-VisionZero/data/'
 file_name <- 'ped_cycle_df.csv'
