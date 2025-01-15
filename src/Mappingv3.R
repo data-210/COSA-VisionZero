@@ -119,7 +119,8 @@ ui <- dashboardPage(
                               "<b>May 3:</b> April 2024 data updated and added to the dashboard.<br>",
                               "<b>June 5:</b> May 2024 data updated and added to the dashboard.<br>",
                               "<b>September 4:</b> June, July, & August 2024 data updated and added to the dashboard. Sorry for the delay!<br>",
-                              "<b>December 6:</b> Added September, October, November data to dashboard.<br>")
+                              "<b>December 6:</b> Added September, October, November data to dashboard.<br>",
+                              "<b>January 14:</b> December 2024 data added.<br>")
                        )
                 )
               )),
