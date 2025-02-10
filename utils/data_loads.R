@@ -245,6 +245,9 @@ View(satx_nov2024)
 satx_dec2024 <- read.csv("data/satx_dec2024.csv", header = TRUE, stringsAsFactors = FALSE)
 satx_dec2024 <- pedcycle_cleaning_function(satx_dec2024)
 
+# 2025 - January
+satx_jan2025 <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/data/satx_jan2025.csv", header = TRUE, stringsAsFactors = FALSE)
+satx_jan2025 <- pedcycle_cleaning_function(satx_jan2025)
 
 ######################################################################################
 ######################################################################################
