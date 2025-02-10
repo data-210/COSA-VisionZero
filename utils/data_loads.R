@@ -32,7 +32,7 @@ satx_2013 <- satx_2013[complete.cases(satx_2013), ]
 View(satx_2013)
 
 # Write to csv
-ped_cycle <- read.csv("ped_cycle.csv", header = TRUE, stringsAsFactors = FALSE)
+#ped_cycle <- read.csv("ped_cycle.csv", header = TRUE, stringsAsFactors = FALSE)
 
 ################################################################################
 
@@ -256,17 +256,18 @@ View(satx_jan2025)
 # Append data frames
 # Change df names to: rbind(ped_cycle_df, satx_xxxx) depending on data year
 # Read in ped_cycle_df
-ped_cycle_df <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/src/ped_cycle_df.csv", header = TRUE, stringsAsFactors = FALSE)
+# ped_cycle_df <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/src/ped_cycle_df.csv", header = TRUE, stringsAsFactors = FALSE)
+# View(ped_cycle_df)
+# ped_cycle_df <- rbind(ped_cycle_df, satx_dec2024, satx_jan2025)
+
+
+ped_cycle_df <- rbind(satx_2013, satx_2014, satx_2015, satx_2016, satx_2017, satx_2018,
+                      satx_2019, satx_2020, satx_2021, satx_2022, satx_2023_jan_may,
+                      satx_2023_june, satx_2023_july, satx_2023_aug, satx_2023_sep, satx_oct2023,
+                      satx_nov2023, satx_dec2023, satx_jan2024, satx_feb2024, satx_mar2024,
+                      satx_apr2024, satx_may2024, satx_june2024, satx_july2024,
+                      satx_aug2024, satx_sepoct2024, satx_nov2024, satx_dec2024, satx_jan2025)
 View(ped_cycle_df)
-ped_cycle_df <- rbind(ped_cycle_df, satx_dec2024, satx_jan2025)
-
-
-# ped_cycle_df <- rbind(satx_2013, satx_2014, satx_2015, satx_2016, satx_2017, satx_2018,
-#                       satx_2019, satx_2020, satx_2021, satx_2022, satx_2023_jan_may,
-#                       satx_2023_june, satx_2023_july, satx_2023_aug, satx_2023_sep, satx_oct2023,
-#                       satx_nov2023, satx_dec2023, satx_jan2024, satx_feb2024, satx_mar2024,
-#                       satx_apr2024, satx_may2024, satx_june2024, satx_july2024,
-#                       satx_aug2024, satx_sepoct2024, satx_nov2024, satx_dec2024, satx_jan2025)
 #ped_cycle_df <- rbind(ped_cycle_df, satx_june2024)
 
 ## Write final df to csv
