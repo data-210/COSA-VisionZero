@@ -121,7 +121,8 @@ ui <- dashboardPage(
                               "<b>September 4:</b> June, July, & August 2024 data updated and added to the dashboard. Sorry for the delay!<br>",
                               "<b>December 6:</b> Added September, October, November data to dashboard.<br>",
                               "<b>January 14:</b> December 2024 data added.<br>",
-                              "<b>February 10:</b> January 2025 data added.<br>")
+                              "<b>February 10:</b> January 2025 data added.<br>",
+                              "<b>March 5:</b> February 2025 data and Crash Month filter add.<br>")
                        )
                 )
               )),
@@ -232,6 +233,10 @@ server <- function(input, output, session) {
     if (!"All" %in% input$year) {
       filtered_data <- filtered_data %>% 
         filter(Crash_Year %in% input$year)
+    }
+    if (!"All" %in% input$month) {
+      filtered_data <- filtered_data %>%
+        filter(Crash_Month %in% input$month)
     }
     return(filtered_data)
   })
