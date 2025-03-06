@@ -130,7 +130,8 @@ ui <- dashboardPage(
                 column(width = 3, 
                        checkboxGroupInput("type", "Person Type:", choices = unique(ped_cycle_df$Person_Type), selected = unique(ped_cycle_df$Person_Type)),
                        checkboxGroupInput("severity", "Injury Severity:", choices = unique(ped_cycle_df$Person_Injury_Severity), selected=unique(ped_cycle_df$Person_Injury_Severity)),
-                       selectInput("year", "Year:", choices = c("All", unique(ped_cycle_df$Crash_Year)), selected="2024", multiple = TRUE)),
+                       selectInput("year", "Year:", choices = c("All", unique(ped_cycle_df$Crash_Year)), selected="2025", multiple = TRUE),
+                       selectInput("month", "Month:", choices = c("All", unique(ped_cycle_df$Crash_Month)), selected = "February", multiple = TRUE)),
                 column(width = 9,
                        leafletOutput("map", height = "95vh"))
               )
@@ -139,7 +140,8 @@ ui <- dashboardPage(
               fluidRow(
                 column(width = 3, 
                        checkboxGroupInput("severity_bike", "Injury Severity:", choices = unique(ped_cycle_df$Person_Injury_Severity), selected = unique(ped_cycle_df$Person_Injury_Severity)),
-                       selectInput("year_bike", "Year:", choices = c("All", unique(ped_cycle_df$Crash_Year)), selected = "2024", multiple = TRUE)),
+                       selectInput("year_bike", "Year:", choices = c("All", unique(ped_cycle_df$Crash_Year)), selected = "2025", multiple = TRUE),
+                       selectInput("month_bike", "Month:", choices = c("All", unique(ped_cycle_df$Crash_Month)), selected = "February", multiple = TRUE)),
                 column(width = 9,
                        leafletOutput("map_bikeFacilities", height = "95vh"))
               )
@@ -208,6 +210,10 @@ server <- function(input, output, session) {
     if (!"All" %in% input$year_bike) {
       filtered_data <- filtered_data %>% 
         filter(Crash_Year %in% input$year_bike)
+    }
+    if (!"All" %in% input$month_bike) {
+      filtered_data <- filtered_data %>%
+        filter(Crash_Month %in% input$month_bike)
     }
     return(filtered_data)
   })
