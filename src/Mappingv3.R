@@ -39,6 +39,7 @@ ui <- dashboardPage(
       menuItem("Crash Maps", icon = icon("map"),
                menuSubItem("Crash Map & Council Districts", tabName = "map_council"),
                menuSubItem("Cyclist Crashes & Bike Routes", tabName = "map_bike")),
+      menuItem("Graphs", tabName = "graphs", icon = icon("chart-bar")),
       tags$li(tags$hr(style = "border-top: 1px solid #ffffff;")),
       menuItem("Data Description", tabName = "data_desc", icon = icon("database")),
       menuItem("Technical Notes", tabName = "tech_notes", icon = icon("cogs")),
