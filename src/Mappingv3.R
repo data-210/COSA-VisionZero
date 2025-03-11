@@ -1,6 +1,6 @@
 ### Shiny Map of SATX Crash Data
 library(leaflet)
-install.packages("shiny")
+#install.packages("shiny")
 library(shiny)
 # install.packages("shinydashboard")
 library(shinydashboard)
@@ -138,6 +138,23 @@ ui <- dashboardPage(
                        leafletOutput("map_bikeFacilities", height = "95vh"))
               )
       ),
+      # New "Graphs" section - 10 March 2025
+      tabItem(tabName = "graphs",
+              fluidRow(
+                box(
+                  title = "Create Your Chart", status = "primary", solidHeader = TRUE, width = 4,
+                  # Allow user to choose x/y vars & chart type:
+                  selectInput("xvar", "X-axis variable:", choices = names(ped_cycle_df), selected = names(ped_cycle_df)[1]),
+                  selectInput("yvar", "Y-axis variable:", choices = names(ped_cycle_df), selected = names(ped_cycle_df)[2]),
+                  radioButtons("chartType", "Chart Type:",
+                               choices = c("Scatterplot" = "scatter", "Bar Chart" = "bar", "Histogram" = "hist")),
+                  actionButton("updateChart", "Update Chart")
+                ),
+                box(
+                  title = "Chart Output", status = "primary", solidHeader = TRUE, width = 8,
+                  plotOutput("graphPlot")
+                )
+              )),
       tabItem(tabName = "data_desc",
               h2("Data Description"),
               p("All the data on crashes involving pedestrians and cyclists in San Antonio is collected from the Texas DOT Crash Record Information System (CRIS)
@@ -340,6 +357,29 @@ server <- function(input, output, session) {
           "<br>"
         )
       )
+  })
+  
+  # New reactive expression for chart creation when update is pressed
+  chartData <- eventReactive(input$updateChart, {
+    list(xvar=input$xvar, yvar=input$yvar, chartType=input$chartType)
+  })
+  # Render the chart
+  output$graphPlot <- renderPlot({
+    req(chartData())
+    chart <- chartData()
+    if(chart$chartType == "scatter"){
+      ggplot(ped_cycle_df, aes_string(x=chart$xvar, y=chart$yvar)) +
+        geom_point()+
+        theme_minimal()
+    } else if(chart$chartType == "bar") {
+      ggplot(ped_cycle_df, aes_string(x=chart$xvar)) +
+        geom_bar() +
+        theme_minimal()
+    } else if(chart$chartType == "hist"){
+      ggplot(ped_cycle_df, aes_string(x=chart$xvar)) +
+        geom_histogram(binwidth = 10, fill = "grey", color = "black") +
+        theme_minimal()
+    }
   })
   
 }
