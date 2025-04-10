@@ -147,7 +147,7 @@ ui <- dashboardPage(
                   selectInput("xvar", "X-axis variable:", choices = names(ped_cycle_df), selected = names(ped_cycle_df)[1]),
                   selectInput("yvar", "Y-axis variable:", choices = names(ped_cycle_df), selected = names(ped_cycle_df)[2]),
                   radioButtons("chartType", "Chart Type:",
-                               choices = c("Scatterplot" = "scatter", "Bar Chart" = "bar", "Histogram" = "hist")),
+                               choices = c("Bar Chart" = "bar")),
                   actionButton("updateChart", "Update Chart")
                 ),
                 box(

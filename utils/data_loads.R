@@ -32,15 +32,6 @@ View(satx_2013)
 # Function
 pedcycle_cleaning_function <- function(dataframe){
   
-  # Check if Crash_Date is character before converting
-  if (is.character(dataframe$Crash_Date)) {
-    # Convert from m/d/Y to Date
-    dataframe$Crash_Date <- lubridate::mdy(dataframe$Crash_Date)
-  } else if (!inherits(dataframe$Crash_Date, "Date")) {
-    # Optionally, handle cases where it's neither character nor Date
-    dataframe$Crash_Date <- as.Date(as.character(dataframe$Crash_Date))
-  }
-  
   # Adjust Crash Date and re-add
   dataframe$Crash_Date <- lubridate::mdy(dataframe$Crash_Date)
   dataframe$Crash_Month <- lubridate::month(dataframe$Crash_Date, label = TRUE, abbr = FALSE)
@@ -260,7 +251,6 @@ View(satx_feb2025)
 
 # 2025 - March
 satx_march2025 <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/data/satx_march2025.csv", header = TRUE, stringsAsFactors = FALSE)
-satx_march2025$Crash_Date <- ymd(satx_march2025$Crash_Date)
 satx_march2025 <- pedcycle_cleaning_function(satx_march2025)
 View(satx_march2025)
 ######################################################################################
@@ -279,7 +269,7 @@ ped_cycle_df <- rbind(satx_2013, satx_2014, satx_2015, satx_2016, satx_2017, sat
                       satx_nov2023, satx_dec2023, satx_jan2024, satx_feb2024, satx_mar2024,
                       satx_apr2024, satx_may2024, satx_june2024, satx_july2024,
                       satx_aug2024, satx_sepoct2024, satx_nov2024, satx_dec2024, satx_jan2025,
-                      satx_feb2025)
+                      satx_feb2025, satx_march2025)
 View(ped_cycle_df)
 
 #ped_cycle_df <- rbind(ped_cycle_df, satx_june2024)
