@@ -32,6 +32,15 @@ View(satx_2013)
 # Function
 pedcycle_cleaning_function <- function(dataframe){
   
+  # Check if Crash_Date is character before converting
+  if (is.character(dataframe$Crash_Date)) {
+    # Convert from m/d/Y to Date
+    dataframe$Crash_Date <- lubridate::mdy(dataframe$Crash_Date)
+  } else if (!inherits(dataframe$Crash_Date, "Date")) {
+    # Optionally, handle cases where it's neither character nor Date
+    dataframe$Crash_Date <- as.Date(as.character(dataframe$Crash_Date))
+  }
+  
   # Adjust Crash Date and re-add
   dataframe$Crash_Date <- lubridate::mdy(dataframe$Crash_Date)
   dataframe$Crash_Month <- lubridate::month(dataframe$Crash_Date, label = TRUE, abbr = FALSE)
