@@ -1,12 +1,5 @@
 ### Data Loads
 library(tidyverse)
-# Master csv creation
-# 
-
-# unique(ped_cycle$Crash_Year)
-# class(mask1$Crash_Date)
-# # 
-
 
 ###############################################################################
 ### New 2013 Data
@@ -256,6 +249,11 @@ satx_feb2025 <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/data/
 satx_feb2025 <- pedcycle_cleaning_function(satx_feb2025)
 View(satx_feb2025)
 
+# 2025 - March
+satx_march2025 <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/data/satx_march2025.csv", header = TRUE, stringsAsFactors = FALSE)
+satx_march2025$Crash_Date <- ymd(satx_march2025$Crash_Date)
+satx_march2025 <- pedcycle_cleaning_function(satx_march2025)
+View(satx_march2025)
 ######################################################################################
 ######################################################################################
 # Append data frames
