@@ -113,7 +113,8 @@ ui <- dashboardPage(
                          collapsible = TRUE,
                          HTML("<b>January 14:</b> December 2024 data added.<br>",
                               "<b>February 10:</b> January 2025 data added.<br>",
-                              "<b>March 5:</b> February 2025 data and Crash Month filter add.<br>")
+                              "<b>March 5:</b> February 2025 data and Crash Month filter add.<br>",
+                              "<b>May 9:</b> April 2025 data added.<br>")
                        )
                 )
               )),
