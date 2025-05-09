@@ -253,6 +253,11 @@ View(satx_feb2025)
 satx_march2025 <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/data/satx_march2025.csv", header = TRUE, stringsAsFactors = FALSE)
 satx_march2025 <- pedcycle_cleaning_function(satx_march2025)
 View(satx_march2025)
+
+# 2025 - April
+satx_april2025 <- read.csv("/Users/jackturek/Documents/Repos/COSA-VisionZero/data/satx_apr2025.csv", header = TRUE, stringsAsFactors = FALSE)
+satx_april2025 <- pedcycle_cleaning_function(satx_april2025)
+View(satx_april2025)
 ######################################################################################
 ######################################################################################
 # Append data frames
